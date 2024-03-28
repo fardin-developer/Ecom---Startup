@@ -29,7 +29,7 @@ const Cart = () => {
         {products.map((product, index) => (
           <div
             key={index}
-            className='item bg-green-100 h-22 m-auto w-11/12 flex justify-between mb-3 items-center p-3 rounded shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105'
+            className='item bg-green-100 h-22 m-auto w-10/12 flex justify-between mb-3 items-center p-3 cursor-pointer rounded shadow-md hover:shadow-xl transition duration-500 transform hover:scale-110'
             >
             <div className='img w-20 bg-yellow-400'>
               <img src='/public/images/logo2.png' alt={product.name} />
