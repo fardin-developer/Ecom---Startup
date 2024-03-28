@@ -20,7 +20,7 @@ const Navbar = () => {
         <div className="right flex  place-content-evenly items-center w-1/6">
             <a href=""><i className="ri-heart-line w-1/3 sm:text-3xl text-xl font-thin"></i></a>
             {/* <a href=""><i className="ri-shopping-basket-line text-3xl font-thin"></i></a> */}
-            <a href=""><i className="ri-shopping-cart-line sm:text-3xl text-xl font-thin"></i></a>
+            <a href="/cart"><i className="ri-shopping-cart-line sm:text-3xl text-xl font-thin"></i></a>
         </div>
 
       

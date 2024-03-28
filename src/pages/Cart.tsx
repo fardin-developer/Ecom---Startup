@@ -40,15 +40,16 @@ const Cart = () => {
         ))}
       </div>
       <div className='right w-2/6'>
-        <div className='priceSummary flex flex-col w-full h-auto m-auto bg-blue-300 rounded'>
-          <div className='title-price m-auto mt-4 w-full flex flex-col p-8'>
+        <div className='priceSummary flex flex-col w-full h-auto m-auto bg-green-100 rounded'>
+          <div className='title-price m-auto mt-4 w-full flex flex-col p-8 border-b border-gray-300'>
             {products.map((product, index) => (
               <div
                 key={index}
-                className='flex justify-between items-center mt-4 mb-4'
+                className='flex justify-between items-center mt-4 mb-4 border-b border-gray-300'
               >
                 <div className='title'>{product.name}</div>
                 <div className='price'>{product.price}</div>
+                
               </div>
             ))}
           </div>
