@@ -29,18 +29,19 @@ const Cart = () => {
         {products.map((product, index) => (
           <div
             key={index}
-            className='item bg-green-100 h-22 m-auto w-10/12 flex justify-between mb-3 items-center p-3 cursor-pointer rounded shadow-md hover:shadow-xl transition duration-500 transform hover:scale-110'
+            className='item bg-green-50 h-22 m-auto w-10/12 flex justify-between mb-3 items-center p-3 cursor-pointer rounded shadow-md hover:shadow-xl transition duration-500 transform hover:scale-110'
             >
             <div className='img w-20 bg-yellow-400'>
               <img src='/public/images/logo2.png' alt={product.name} />
             </div>
             <div className='title-qty'>{product.name}</div>
+            <div className='title-qty'>{product.quantity}</div>
             <div className='price'>{product.price}</div>
           </div>
         ))}
       </div>
       <div className='right w-2/6'>
-        <div className='priceSummary flex flex-col w-full h-auto m-auto bg-green-100 rounded'>
+        <div className='priceSummary flex flex-col w-full h-auto m-auto bg-gray-100 rounded'>
           <div className='title-price m-auto mt-4 w-full flex flex-col p-8 border-b border-gray-300'>
             {products.map((product, index) => (
               <div
@@ -48,7 +49,7 @@ const Cart = () => {
                 className='flex justify-between items-center mt-4 mb-4 border-b border-gray-300'
               >
                 <div className='title'>{product.name}</div>
-                <div className='price'>{product.price}</div>
+                <div className='price'>{Number(product.price.replace(/[^\d.-]/g, ''))*Number(product.quantity)} ₹</div>
                 
               </div>
             ))}
@@ -63,7 +64,7 @@ const Cart = () => {
             <div className='tax'>
               <p>Total</p>
             </div>
-            <div className='price'>Rs {(totalPrice.toFixed(2) * 18) / 100}</div>
+            <div className='price'>Rs {(totalPrice+(totalPrice.toFixed(2) * 18) / 100).toFixed(2)}</div>
           </div>
         </div>
         <button className='button w-full m-auto mt-4 bg-red-300 p-3 flex rounded items-center justify-center shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105'>
