@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ id, name, price }) => {
+  const navigate = useNavigate();
+
   const [product, setProduct] = useState({id:0, name: "", price: "", quantity: 0 });
   const [counter, setCounter] = useState(0); 
 
@@ -14,7 +17,12 @@ const ProductCard = ({ id, name, price }) => {
     setCounter(counter + 1);
     setProduct(updatedProduct);
     setLocalSto(updatedProduct);
+    alert("Prodct has been added to your cart");
   };
+
+  const handleNavigate =()=>{
+    navigate('/product-page')
+  }
 
   const setLocalSto = (product) => {
 
@@ -45,8 +53,8 @@ const ProductCard = ({ id, name, price }) => {
   }, []);
 
   return (
-    <div className="container sm:w-80 sm:h-auto w-40 h-auto bg-green-100 m-auto sm:mb-10 mb-4 sm:pt-2 pt-1 sm:pb-6 pb-2 rounded-xl cursor-default">
-      <div className="upperDiv  sm:w-11/12 sm:h-64 w-11/12 h-32 bg-blue-100 m-auto sm:my-2 rounded-xl">
+    <div className="container sm:w-80 sm:h-auto w-40 h-auto bg-green-100 m-auto sm:mb-10 mb-4 sm:pt-2 pt-1 sm:pb-6 pb-2 rounded-xl cursor-default" >
+      <div className="upperDiv  sm:w-11/12 sm:h-64 w-11/12 h-32 bg-blue-100 m-auto sm:my-2 rounded-xl" onClick={handleNavigate}>
         <div className="imgDiv w-full h-full "></div>
       </div>
       <div className="lowerDiv sm:w-11/12 w-11/12 m-auto">
@@ -66,7 +74,7 @@ const ProductCard = ({ id, name, price }) => {
           <a href="">
             <i className="ri-shopping-cart-line sm:text-base text-xs font-thin "></i>
           </a>
-          <h3 className="sm:text-lg text-xs">Add to cart</h3>
+          <h3 className="sm:text-lg text-xs" onClick={handleClick}>Add to cart</h3>
         </div>
       </div>
     </div>

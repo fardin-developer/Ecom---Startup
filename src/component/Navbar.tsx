@@ -1,11 +1,13 @@
-
+import { Link } from "react-router-dom"
 const Navbar = () => {
   return (
    
       
     <div className='nav flex place-content-between h-28 w-100 '>
         <div className="left flex place-content-evenly items-center sm:w-1/4 w-1/6">
-            <img src="public/images/logo2.png" alt="" className='sm:rounded-full sm:w-52 sm:h-52  h-28'/>
+        <Link to="/"> {/* Add the 'to' prop with the desired link destination */}
+          <img src="public/images/logo2.png" alt="" className='sm:rounded-full sm:w-52 sm:h-52 h-28'/>
+        </Link>
         </div>
         <div className="middle flex place-content-evenly items-center sm:w-1/2 w-5/12 ">
           <div className="searchBar flex h-10 w-full bg-gray-200 rounded-full place-content-around items-center">
