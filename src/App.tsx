@@ -1,12 +1,16 @@
-import Home from "./pages/Home"
-import Cart from "./pages/Cart"
-function App() {
-
+import Home from './pages/Home'
+import Cart from './pages/Cart'
+import './App.css'
+import Navbar from './component/Navbar'
+import Product from './pages/Product'
+function App () {
   return (
-   <>
-   <Home/>
-   <Cart/>
-   </>
+    <div>
+       <Navbar />
+     {/* <Home />
+      <Product/> */}
+      <Cart />
+    </div>
   )
 }
 

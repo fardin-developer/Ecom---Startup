@@ -5,7 +5,6 @@ const Product = () => {
     { id: 0, name: 'Product 1', price: '₹599' },
     { id: 1, name: 'Product 2', price: '₹799' },
     { id: 2, name: 'Product 3', price: '₹999' }
-    // Add more products as needed
   ]
 
   return (

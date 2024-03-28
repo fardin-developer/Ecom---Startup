@@ -17,8 +17,8 @@ const ProductCard = ({ id, name, price }) => {
   };
 
   const setLocalSto = (product) => {
-    
-    // Retrieve existing products from local storage
+
+    // getting existing products from local storage
     const existingProductsString = localStorage.getItem("products");
     let existingProducts = existingProductsString
       ? JSON.parse(existingProductsString)
