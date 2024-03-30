@@ -15,7 +15,7 @@ function App () {
         <Animation/>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/product' element={<Product />}></Route>
+          <Route path='/product' element={<Product />}/>
           <Route path='/cart' element={<Cart />} />
           <Route path='/product-page' element={<ProductDetails />} />
         </Routes>

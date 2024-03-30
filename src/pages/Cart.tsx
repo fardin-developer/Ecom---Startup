@@ -10,6 +10,7 @@ const Cart = () => {
   const [products, setProducts] = useState<Product[]>([])
 
   useEffect(() => {
+    alert('cart page')
     const storedProductsString = localStorage.getItem('products');
     const storedProducts: Product[] = storedProductsString 
       ? JSON.parse(storedProductsString)
@@ -40,7 +41,7 @@ const Cart = () => {
             className='item bg-green-50 h-22 m-auto w-10/12 flex justify-between mb-3 items-center p-3 cursor-pointer rounded shadow-md hover:shadow-xl transition duration-500 transform hover:scale-110'
             >
             <div className='img w-20 bg-yellow-400'>
-              <img src='/public/images/logo2.png' alt={product.name} />
+              <img src='/images/logo2.png' alt={product.name} />
             </div>
             <div className='title-qty'>{product.name}</div>
             <div className='title-qty'>{product.quantity}</div>

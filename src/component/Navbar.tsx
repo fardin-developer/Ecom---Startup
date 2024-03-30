@@ -6,7 +6,7 @@ const Navbar = () => {
     <div className='nav flex place-content-between h-28 w-100 '>
         <div className="left flex place-content-evenly items-center sm:w-1/4 w-1/6">
         <Link to="/"> 
-          <img src="public/images/logo2.png" alt="" className='sm:rounded-full sm:w-52 sm:h-52 h-28'/>
+          <img src="images/logo2.png" alt="" className='sm:rounded-full sm:w-52 sm:h-52 h-28'/>
         </Link>
         </div>
         <div className="middle flex place-content-evenly items-center sm:w-1/2 w-5/12 ">
