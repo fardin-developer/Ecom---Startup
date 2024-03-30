@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 interface Product {
@@ -17,12 +17,7 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ id, name, price }) => {
   const navigate = useNavigate()
 
-  const [product, setProduct] = useState<Product>({
-    id: 0,
-    name: '',
-    price: '',
-    quantity: 0
-  })
+
   const [counter, setCounter] = useState<number>(0)
 
   const handleClick = () => {
@@ -33,7 +28,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price }) => {
       quantity: counter + 1
     }
     setCounter(counter + 1)
-    setProduct(updatedProduct)
     setLocalSto(updatedProduct)
     alert(name + ' has been added to your cart!')
     navigate('/cart')
@@ -63,12 +57,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price }) => {
     localStorage.setItem('products', JSON.stringify(existingProducts))
   }
 
-  useEffect(() => {
-    const storedProductsString = localStorage.getItem('products')
-    const storedProducts: Product[] = storedProductsString
-      ? JSON.parse(storedProductsString)
-      : []
-  }, [])
+
 
   return (
     <div className='container sm:w-80 sm:h-auto w-40 h-auto bg-green-100 m-auto sm:mb-10 mb-4 sm:pt-2 pt-1 sm:pb-6 pb-2 rounded-xl cursor-default  shadow-md hover:shadow-xl transition duration-500 transform hover:scale-110'>
