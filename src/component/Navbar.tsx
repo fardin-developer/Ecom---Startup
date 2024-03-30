@@ -5,7 +5,7 @@ const Navbar = () => {
       
     <div className='nav flex place-content-between h-28 w-100 '>
         <div className="left flex place-content-evenly items-center sm:w-1/4 w-1/6">
-        <Link to="/"> {/* Add the 'to' prop with the desired link destination */}
+        <Link to="/"> 
           <img src="public/images/logo2.png" alt="" className='sm:rounded-full sm:w-52 sm:h-52 h-28'/>
         </Link>
         </div>
@@ -19,7 +19,7 @@ const Navbar = () => {
         </div>
         <div className="right flex  place-content-evenly items-center w-1/6">
             <a href=""><i className="ri-heart-line w-1/3 sm:text-3xl text-xl font-thin"></i></a>
-            {/* <a href=""><i className="ri-shopping-basket-line text-3xl font-thin"></i></a> */}
+            
             <a href="/cart"><i className="ri-shopping-cart-line sm:text-3xl text-xl font-thin"></i></a>
         </div>
 

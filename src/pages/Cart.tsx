@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react'
-
+interface Product {
+  id: number
+  name: string
+  price: string
+  quantity: number
+}
 const Cart = () => {
-  const [totalPrice, setTotalPrice] = useState(0)
-  const [products, setProducts] = useState([])
+  const [totalPrice, setTotalPrice] = useState<Number>(0)
+  const [products, setProducts] = useState<Product[]>([])
 
   useEffect(() => {
-    const storedProducts = JSON.parse(localStorage.getItem('products')) || []
-    let totalPrice = 0
+    const storedProductsString = localStorage.getItem('products');
+    const storedProducts: Product[] = storedProductsString 
+      ? JSON.parse(storedProductsString)
+      : [];
+        let totalPrice = 0
 
 
     
@@ -64,7 +72,7 @@ const Cart = () => {
             <div className='tax'>
               <p>Total</p>
             </div>
-            <div className='price'>Rs {(totalPrice+(totalPrice.toFixed(2) * 18) / 100).toFixed(2)}</div>
+            <div className='price'>Rs {(Number(totalPrice)+(Number(totalPrice) * 18) / 100).toFixed(2)}</div>
           </div>
         </div>
         <button className='button w-full m-auto mt-4 bg-red-300 p-3 flex rounded items-center justify-center shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105'>

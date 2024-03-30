@@ -1,19 +1,32 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const ProductCard = ({ id, name, price }) => {
+interface Product {
+  id: number
+  name: string
+  price: string
+  quantity: number
+}
+
+interface ProductCardProps {
+  id: number
+  name: string
+  price: string
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ id, name, price }) => {
   const navigate = useNavigate()
 
-  const [product, setProduct] = useState({
+  const [product, setProduct] = useState<Product>({
     id: 0,
     name: '',
     price: '',
     quantity: 0
   })
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState<number>(0)
 
   const handleClick = () => {
-    const updatedProduct = {
+    const updatedProduct: Product = {
       id: id,
       name: name,
       price: price,
@@ -30,10 +43,10 @@ const ProductCard = ({ id, name, price }) => {
     navigate('/product-page')
   }
 
-  const setLocalSto = product => {
+  const setLocalSto = (product: Product) => {
     // getting existing products from local storage
     const existingProductsString = localStorage.getItem('products')
-    let existingProducts = existingProductsString
+    let existingProducts: Product[] = existingProductsString
       ? JSON.parse(existingProductsString)
       : []
 
@@ -52,7 +65,7 @@ const ProductCard = ({ id, name, price }) => {
 
   useEffect(() => {
     const storedProductsString = localStorage.getItem('products')
-    const storedProducts = storedProductsString
+    const storedProducts: Product[] = storedProductsString
       ? JSON.parse(storedProductsString)
       : []
   }, [])
@@ -65,7 +78,7 @@ const ProductCard = ({ id, name, price }) => {
       >
         <div className='imgDiv w-full h-full'>
           <img
-            src='https://picsum.photos/300/250'
+            src='https://i.pinimg.com/564x/26/ea/09/26ea0987d5957b5dbecefa6c1502d187.jpg'
             alt=''
             className='object-cover w-full h-full'
           />
@@ -88,7 +101,7 @@ const ProductCard = ({ id, name, price }) => {
           <a href=''>
             <i className='ri-shopping-cart-line sm:text-base text-xs font-thin '></i>
           </a>
-          <h3 className='sm:text-lg text-xs' onClick={handleClick}>
+          <h3 className='sm:text-lg text-xs'>
             Add to cart
           </h3>
         </div>
