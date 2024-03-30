@@ -5,4 +5,23 @@
 body{
     width: 100vw;
     height: 100vh;
+    background-color: rgb(249 250 251);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
 }
+div{
+    margin: 0;padding: 0;
+}
+
+@keyframes translateXAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.33%);
+    }
+  }
+  
+  
