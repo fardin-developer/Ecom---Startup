@@ -89,7 +89,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price }) => {
           <h1 className='sm:text-3xl text-sm'>{name}</h1>
         </div>
         <div className='price-wishlist  flex place-content-between items-center sm:mb-2'>
-          <h2 className='price sm:text-2xl text-xs'>{price}</h2>
+          <h2 className='price sm:text-2xl text-xs'>{price} ₹</h2>
           <a href=''>
             <i className='ri-heart-line w-1/3 sm:text-lg text-xs font-thin'></i>
           </a>
