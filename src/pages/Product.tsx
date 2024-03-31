@@ -1,5 +1,5 @@
 import ProductCard from '../component/ProductCard'
-import products from '../../public/data/products'
+import products from '../products'
 const Product = () => {
   
 
