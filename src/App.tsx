@@ -5,14 +5,12 @@ import Home from './pages/Home'
 import Cart from './pages/Cart'
 import Product from './pages/Product'
 import ProductDetails from './pages/ProductDetails'
-import Animation from './component/Animation'
 
 function App () {
   return (
     <>
       <Router>
         <Navbar />
-        <Animation/>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/product' element={<Product />}/>

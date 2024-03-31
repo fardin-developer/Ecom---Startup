@@ -1,6 +1,8 @@
-
+import Animation2 from "../component/Animation2"
 const ProductDetails = () => {
   return (
+    <>
+      <Animation2 color2={true} color3={false} />
     <div className='productpage flex p-8  h-scren'>
         <div className='left w-6/12'>
           <div className='img w-full'>
@@ -22,6 +24,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+      </>
   )
 }
 

@@ -1,13 +1,14 @@
-import Product from "./Product"
+import Product from './Product'
+import Animation from '../component/Animation'
 
 const Home = () => {
   return (
     <>
-    <h1 className="text-center text-2xl mb-8 mt-4">Home</h1>
-    <Product/>
+      <Animation />
+
+      <h1 className='text-center text-2xl mb-8 mt-4'>Home</h1>
+      <Product />
     </>
-   
-    
   )
 }
 
