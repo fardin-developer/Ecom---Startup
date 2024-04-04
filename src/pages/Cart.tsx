@@ -32,11 +32,11 @@ const Cart = () => {
   }, []);
 
   return (
-    <>
+    <div className='min-h-screen'>
       <Animation2 color2={true} color3={true} />
-      <h1 className='text-center mt-4'>Cart Page</h1>
-      <div className='cartPage w-screen h-auto bg-yellow flex pr-6 pt-6'>
-        <div className='left w-8/12 h-auto bg-red-'>
+      <h1 className='text-center text-2xl mt-4'>Cart Page</h1>
+      <div className='cartPage w-screen h-auto  sm:flex sm:flex-row flex-col justify-center align-center bg-green-50 rounded-md pr-6 pt-6 pb-6'>
+        <div className='left w-8/12 h-auto  m-auto'>
           {products.map((product, index) => (
             <div
               key={index}
@@ -47,11 +47,11 @@ const Cart = () => {
               </div>
               <div className='title-qty'>{product.name}</div>
               <div className='title-qty'>{product.quantity}</div>
-              <div className='price'>{product.price}</div>
+              <div className='price'>  <span className='mr-2'>₹ </span>{product.price}</div>
             </div>
           ))}
         </div>
-        <div className='right w-2/6'>
+        <div className='right w-4/6 sm:w-2/6   m-auto'>
           <div className='priceSummary flex flex-col w-full h-auto m-auto bg-gray-100 rounded'>
             <div className='title-price m-auto mt-4 w-full flex flex-col p-8 border-b border-gray-300'>
               {products.map((product, index) => (
@@ -60,11 +60,12 @@ const Cart = () => {
                   className='flex justify-between items-center mt-4 mb-4 border-b border-gray-300'
                 >
                   <div className='title'>{product.name}</div>
-                  <div className='price'>
+                  <div className='price' >
+                  <span style={{marginRight:"3px"}}>₹ </span>
                     {(
                       Number(product.price.replace('₹', '')) * product.quantity
                     ).toFixed(2)}{' '}
-                    ₹
+                    
                   </div>
                 </div>
               ))}
@@ -80,11 +81,12 @@ const Cart = () => {
                 <p>Total</p>
               </div>
               <div className='price'>
+                <span style={{marginRight:"3px"}}>₹</span>
                 {(
                   Number(totalPrice) +
                   (Number(totalPrice) * 18) / 100
                 ).toFixed(2)}{' '}
-                ₹
+                
               </div>
             </div>
           </div>
@@ -93,7 +95,7 @@ const Cart = () => {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

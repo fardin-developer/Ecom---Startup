@@ -1,42 +1,44 @@
-import { useState,useEffect } from 'react'
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { update } from '../features/search/searchSlice';
-import { useSelector } from 'react-redux';
-import { RootState } from '../app/store';
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { update } from '../features/search/searchSlice'
+import { useSelector } from 'react-redux'
+import { RootState } from '../app/store'
 interface Product {
-  id: number;
-  name: string;
-  price: string;
-  quantity: number;
+  id: number
+  name: string
+  price: string
+  quantity: number
 }
 
-const Navbar= () => {
-  const cartNumber = useSelector((state: RootState) => state.cartNumber.cartNumber);
+const Navbar = () => {
+  const cartNumber = useSelector(
+    (state: RootState) => state.cartNumber.cartNumber
+  )
 
-  const [searchInput, setsearchInput] = useState<string>('');
+  const [searchInput, setsearchInput] = useState<string>('')
   const [cartLength, setcartLength] = useState<number>()
   const dispatch = useDispatch()
   useEffect(() => {
-    const existingproduct = localStorage.getItem("products");
-    const existingProducts: Product[] = existingproduct ? JSON.parse(existingproduct) : [];
-    setcartLength(existingProducts.length);
-
+    const existingproduct = localStorage.getItem('products')
+    const existingProducts: Product[] = existingproduct
+      ? JSON.parse(existingproduct)
+      : []
+    setcartLength(existingProducts.length)
   }, [cartLength])
-  
 
   const handleSearch = () => {
-    dispatch(update(searchInput));
-
+    dispatch(update(searchInput))
   }
   return (
-    <div className='nav flex place-content-between h-28 w-100 '>
-      <div className='left flex place-content-evenly items-center sm:w-1/4 w-1/6'>
+    <div className='nav flex place-content-between h-28 w-100 pr-6 pl-4'>
+      <div className='left flex place-content-evenly items-center sm:w-1/4 w-20 '>
         <Link to='/'>
           <img
             src='images/logo2.png'
             alt=''
-            className='sm:rounded-full sm:w-52 sm:h-52 h-28'
+            width={'200px'}
+            className='sm:rounded-full sm:w-52 sm:h-52 h-28 object-cover'
           />
         </Link>
       </div>
@@ -49,7 +51,7 @@ const Navbar= () => {
             value={searchInput}
             onChange={e => {
               setsearchInput(e.target.value)
-              // dispatch(update(e.target.value))
+              dispatch(update(e.target.value))
             }}
           />
           <button onClick={handleSearch}>
@@ -57,13 +59,15 @@ const Navbar= () => {
           </button>
         </div>
       </div>
-      <div className='right flex  place-content-evenly items-center w-1/6'>
+      <div className='right flex  place-content-evenly items-center w-1/6 gap-4'>
         <div>
           <i className='ri-heart-line w-1/3 sm:text-3xl text-xl font-thin'></i>
         </div>
 
         <a href='/cart'>
-          <i className='ri-shopping-cart-line sm:text-3xl text-xl font-thin'><span className='font-bold text-red-600'>{cartNumber}</span></i>
+          <i className='ri-shopping-cart-line sm:text-3xl text-xl font-thin'>
+            <span className='font-bold text-red-600'>{cartNumber}</span>
+          </i>
         </a>
       </div>
     </div>

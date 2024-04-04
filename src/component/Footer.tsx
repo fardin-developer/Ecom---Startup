@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
     <>
-      <div className="fixed w-screen bg-black text-white p-4 flex items-center justify-center bottom-0	mt-4">
+<div className="absolute top-screen w-full bg-black text-white p-4 flex items-center justify-center">
         <button
           disabled={pageNo === 1}
           onClick={() => dispatch(decrement())}
