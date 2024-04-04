@@ -39,15 +39,15 @@ const Animation = () => {
           </div>
           <audio src="/sounds/click.mp3">Play</audio>
 
-          <div className={`step relative w-32 h-32 flex rounded-full flex-col justify-center items-center z-3 text-center rounded  ${step1 ? ' bg-green-200 w-44' : ''}`} id="step1">
+          <div className={`step relative w-32 h-32 flex rounded-full flex-col justify-center items-center z-3 text-center   ${step1 ? ' bg-green-200 w-44' : ''}`} id="step1">
             <img src="/images/check.png" alt="" width={'30px'} className="z-10" />
             <p className={`${step1 ? 'animate- visible' : 'hidden'}`}>Select</p>
           </div>
-          <div className={`step relative w-32 h-32 flex rounded-full flex-col justify-center items-center z-3 text-center rounded ${step2 ? 'bg-green-300 w-44' : ''}`} id="step2">
+          <div className={`step relative w-32 h-32 flex rounded-full flex-col justify-center items-center z-3 text-center  ${step2 ? 'bg-green-300 w-44' : ''}`} id="step2">
             <img src="/images/cart.png" alt="" width={'30px'} className="z-10" />
             <p className={`${step2 ? 'animate- visible' : 'hidden'}`}>Add to cart</p>
           </div>
-          <div className={`step relative w-32 h-32 flex rounded-full flex-col justify-center items-center z-3 text-center  rounded-full ${step3 ? 'animate-pulse	 bg-green-400 w-44 ' : ''}`} id="step3">
+          <div className={`step relative w-32 h-32 flex  flex-col justify-center items-center z-3 text-center  rounded-full ${step3 ? 'animate-pulse	 bg-green-400 w-44 ' : ''}`} id="step3">
             <img src="/images/checkout.png" alt="" width={'30px'} className="z-10" />
             <p className={`${step3 ? 'animate- visible' : 'hidden'}`}>Check Out</p>
           </div>
