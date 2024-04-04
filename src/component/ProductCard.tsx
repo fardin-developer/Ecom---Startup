@@ -1,65 +1,79 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {  useDispatch } from 'react-redux';
+import { increment } from '../features/cart/cartSlice';
+
+
+
 
 interface Product {
-  id: number
-  name: string
-  price: string
-  quantity: number
+  id: number;
+  name: string;
+  price: string;
+  quantity: number;
 }
 
 interface ProductCardProps {
-  id: number
-  name: string
-  price: string
+  id: number;
+  name: string;
+  price: string;
+  image: string
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ id, name, price }) => {
-  const navigate = useNavigate()
-
-
-  const [counter, setCounter] = useState<number>(0)
+const ProductCard: React.FC<ProductCardProps> = ({ id, name, price,image }) => {
+  const navigate = useNavigate();
+  const [counter, setCounter] = useState<number>(0);
+  const dispatch = useDispatch();
 
   const handleClick = () => {
+    dispatch(increment())
+    const existingProductsString = localStorage.getItem('products');
+    const existingProducts: Product[] = existingProductsString ? JSON.parse(existingProductsString) : [];
+  
+    const existingProductIndex = existingProducts.findIndex(existingProduct => existingProduct.id === id);
+    
+
+    if (existingProductIndex !== -1) {
+      alert(`${name} is already added to your cart!`);
+      return; // Exit the function if product already exists in the cart
+    }
+  
     const updatedProduct: Product = {
       id: id,
       name: name,
       price: price,
       quantity: counter + 1
-    }
-    setCounter(counter + 1)
-    setLocalSto(updatedProduct)
-    alert(name + ' has been added to your cart!')
-    navigate('/cart')
-  }
+    };
+  
+    setCounter(counter + 1);
+    setLocalSto(updatedProduct);
+    alert(`${name} has been added to your cart!`);
+    navigate('/cart');
+  };
+  
 
   const handleNavigate = () => {
-    navigate('/product-page')
-  }
+    navigate('/product-page');
+  };
 
   const setLocalSto = (product: Product) => {
-    // getting existing products from local storage
-    const existingProductsString = localStorage.getItem('products')
-    let existingProducts: Product[] = existingProductsString
-      ? JSON.parse(existingProductsString)
-      : []
+    const existingProductsString = localStorage.getItem('products');
+    let existingProducts: Product[] = existingProductsString ? JSON.parse(existingProductsString) : [];
 
-    const existingProductIndex = existingProducts.findIndex(
-      existingProduct => existingProduct.id === product.id
-    )
+    const existingProductIndex = existingProducts.findIndex(existingProduct => existingProduct.id === product.id);
 
     if (existingProductIndex !== -1) {
-      existingProducts[existingProductIndex].quantity += 1
+      existingProducts[existingProductIndex].quantity += 1;
     } else {
-      existingProducts = [...existingProducts, product]
+      existingProducts = [...existingProducts, product];
     }
 
-    localStorage.setItem('products', JSON.stringify(existingProducts))
-  }
-
-
+    localStorage.setItem('products', JSON.stringify(existingProducts));
+  };
 
   return (
+    <>
+  
     <div className='container sm:w-80 sm:h-auto w-40 h-auto bg-green-100 m-auto sm:mb-10 mb-4 sm:pt-2 pt-1 sm:pb-6 pb-2 rounded-xl cursor-default  shadow-md hover:shadow-xl transition duration-500 transform hover:scale-110'>
       <div
         className='upperDiv  sm:w-11/12 sm:h-64 w-11/12 h-32 bg-blue-100 m-auto sm:my-2 rounded-xl'
@@ -67,7 +81,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price }) => {
       >
         <div className='imgDiv w-full h-full'>
           <img
-            src='https://i.pinimg.com/564x/26/ea/09/26ea0987d5957b5dbecefa6c1502d187.jpg'
+             src={image}
             alt=''
             className='object-cover w-full h-full'
           />
@@ -78,7 +92,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price }) => {
           <h1 className='sm:text-3xl text-sm'>{name}</h1>
         </div>
         <div className='price-wishlist  flex place-content-between items-center sm:mb-2'>
-          <h2 className='price sm:text-2xl text-xs'>{price} ₹</h2>
+          <h2 className='price sm:text-2xl text-xs'>₹ {price} </h2>
           <a href=''>
             <i className='ri-heart-line w-1/3 sm:text-lg text-xs font-thin'></i>
           </a>
@@ -90,13 +104,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price }) => {
           <a href=''>
             <i className='ri-shopping-cart-line sm:text-base text-xs font-thin '></i>
           </a>
-          <h3 className='sm:text-lg text-xs'>
-            Add to cart
-          </h3>
+          <h3 className='sm:text-lg text-xs'>Add to cart</h3>
         </div>
       </div>
-    </div>
-  )
-}
 
-export default ProductCard
+    </div>
+
+
+    </>
+  );
+};
+
+export default ProductCard;
