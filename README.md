@@ -33,6 +33,7 @@ To get started with the project, follow these steps:
 - Vite
 - Redux Toolkit
 
+![Image Description](./public/images/2.png)
 
 
 
