@@ -1,34 +1,38 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project is a basic e-commerce application built using React, TypeScript, and Vite. It includes essential features such as product search functionality, pagination, displaying products already added to the cart, and toast messages upon adding items to the cart. Redux Toolkit is used for state management.
 
-Currently, two official plugins are available:
+## Features
+1. **Search Functionality:** Users can search for products by entering keywords in the search bar.
+2. **Pagination:** Products are paginated for better navigation and user experience.
+3. **Product Already Added:** Products already added to the cart are displayed to provide users with quick access to their selections.
+4. **Toast Message:** Upon adding an item to the cart, a toast message is displayed to confirm the action.
+5. **Redux Toolkit:** Redux Toolkit is utilized for efficient state management within the application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
+To get started with the project, follow these steps:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone the repository: (git clone <repository-url>)
 
 
-![Image Description](./public/images/screenshot.png)
+2. Navigate to the project directory: (cd <project-directory>)
+
+
+3. Install dependencies: (npm install)
+
+
+4. Run the development server: (npm run dev)
+
+
+5. Open your browser and navigate to `http://localhost:5173` to view the application.
+
+## Technologies Used
+- React
+- TypeScript
+- Vite
+- Redux Toolkit
+
+
+
 
